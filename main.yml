@@ -1,0 +1,28 @@
+
+name: DVT
+
+on: 
+  workflow_dispatch:
+     inputs:
+       urlfile:
+         description: 'URL:'
+         required: true
+         default: ""
+       namefile:
+         description: 'Name File:'
+         required: true
+         default: ""
+       optionurl:
+         description: 'Option URL: URL = 1 | Mega = 2'
+         required: true
+         default: "1"
+
+jobs:
+  translations:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+    - name: Chrome
+      run: pip install selenium && sudo apt install chromium-chromedriver -y && pip install tqdm && pip install ipython && url2file=${{ github.event.inputs.urlfile }} name2file=${{ github.event.inputs.namefile }} option2url=${{ github.event.inputs.optionurl }} python py.py && sleep 10s
