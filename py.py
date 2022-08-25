@@ -74,7 +74,6 @@ def tup(name_file):
     print("100%")
     time.sleep(5)
     print("Upload Done! :D")
-    driver.close()
 
 if(option_url == "2"):
     driver.get(url_file)
@@ -85,4 +84,5 @@ if(url_mega_1 != "no"):
 if(url_mega_2 != "no"):
     driver.get(url_mega_2)
     mega_name()
+
 print("------------")
