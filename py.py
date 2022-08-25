@@ -59,7 +59,7 @@ def tup(name_file):
     driver.get("https://trainbit.com/files/")
     time.sleep(4)
     sys.stdout.write('\r'+ "Loading... 4/4")
-    driver.find_element(by=By.ID,value="f_upload").send_keys(patchfile + "/" + name_file)
+    driver.find_element(by=By.ID,value="f_upload").send_keys("./" + name_file)
     WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[3]/div/div[2]/div[2]/div/div[1]/ul/li/div/p[2]/span")))
     print("\n" + name_file)
     num = True
@@ -72,7 +72,7 @@ def tup(name_file):
          
     time.sleep(1)
     print("100%")
-    time.sleep(5)
+    time.sleep(15)
     print("Upload Done! :D")
 
 if(option_url == "2"):
