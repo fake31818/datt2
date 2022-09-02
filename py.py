@@ -7,7 +7,6 @@ import shutil
 import time
 import os
 import sys
-from tqdm.auto import tqdm
 url_file = os.environ['url2file']
 name_file = os.environ['name2file']
 option_url = os.environ['option2url']
@@ -16,9 +15,7 @@ patchfile = os.getcwd()
 print(url_file)
 print(name_file)
 if(option_url == "1"):
-    r = requests.get(url_file)
-        with open(name_file,'wb') as f:
-            f.write(r.content)
+    os.system(f"curl '{url_file}' --output {name_file}") 
 elif(option_url == "2"):
     os.system("mega-get " + url_file)
     print("M Done!")
