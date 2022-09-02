@@ -14,15 +14,9 @@ option_url = os.environ['option2url']
 patchfile = os.getcwd()
 #------------------------------------------------------------------------------------
 if(option_url == "1"):
-    with requests.get(url_file, stream=True) as r:
-        
-        total_length = int(r.headers.get("Content-Length"))
-        
-        with tqdm.wrapattr(r.raw, "read", total=total_length, desc="")as raw:
-        
-            # save the output to a file
-            with open(name_file, 'wb')as output:
-                shutil.copyfileobj(raw, output)
+    r = requests.get(url_file)
+        with open(name_file,'wb') as f:
+            f.write(r.content)
 elif(option_url == "2"):
     os.system("mega-get " + url_file)
     print("M Done!")
