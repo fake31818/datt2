@@ -13,6 +13,8 @@ name_file = os.environ['name2file']
 option_url = os.environ['option2url']
 patchfile = os.getcwd()
 #------------------------------------------------------------------------------------
+print(url_file)
+print(name_file)
 if(option_url == "1"):
     r = requests.get(url_file)
         with open(name_file,'wb') as f:
