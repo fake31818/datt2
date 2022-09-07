@@ -1,3 +1,4 @@
+import sys
 sys.stdout.write('\r'+ "Starting... 1/4")
 import requests
 from selenium import webdriver
@@ -7,7 +8,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import shutil
 import time
 import os
-import sys
 sys.stdout.write('\r'+ "Starting... 2/4")
 url_file = os.environ['url2file']
 name_file = os.environ['name2file']
