@@ -1,3 +1,4 @@
+sys.stdout.write('\r'+ "Starting... 1/4")
 import requests
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -7,15 +8,18 @@ import shutil
 import time
 import os
 import sys
+sys.stdout.write('\r'+ "Starting... 2/4")
 url_file = os.environ['url2file']
 name_file = os.environ['name2file']
 option_url = os.environ['option2url']
 patchfile = os.getcwd()
+sys.stdout.write('\r'+ "Starting... 3/4")
 #------------------------------------------------------------------------------------
 print(url_file)
 print(name_file)
+sys.stdout.write('\r'+ "Starting... 4/4")
 if(option_url == "1"):
-    os.system(f"curl '{url_file}' --output {name_file}") 
+    os.system(f'curl "{url_file}" --output "{name_file}"') 
 elif(option_url == "2"):
     os.system("mega-get " + url_file)
     print("M Done!")
