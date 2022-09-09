@@ -19,7 +19,7 @@ print(url_file)
 print(name_file)
 sys.stdout.write('\r'+ "Starting... 4/4")
 if(option_url == "1"):
-    os.system("curl " + url_file + " --output "+ name_file) 
+    os.system(f'curl "{url_file}" --output "{name_file}"') 
 elif(option_url == "2"):
     os.system("mega-get " + url_file)
     print("M Done!")
