@@ -9,8 +9,8 @@ import shutil
 import time
 import os
 sys.stdout.write('\r'+ "Starting... 2/4")
-url_file = str(os.environ['url2file'])
-name_file = str(os.environ['name2file'])
+url_file = os.environ['url2file']
+name_file = os.environ['name2file']
 option_url = os.environ['option2url']
 patchfile = os.getcwd()
 sys.stdout.write('\r'+ "Starting... 3/4")
