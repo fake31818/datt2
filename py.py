@@ -1,5 +1,11 @@
 import sys
-sys.stdout.write('\r'+ "Starting... 1/4")
+import os
+print("Starting....")
+os.system("pip install -U urllib3 requests")
+os.system("wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb")
+os.system("sudo apt install ./megacmd-Debian_9.0_amd64.deb")
+os.system("pip install selenium")
+os.system("sudo apt install chromium-chromedriver -y")
 import requests
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -7,7 +13,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import shutil
 import time
-import os
+
 sys.stdout.write('\r'+ "Starting... 2/4")
 url_file = os.environ['url2file']
 name_file = os.environ['name2file']
