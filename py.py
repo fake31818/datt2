@@ -57,7 +57,7 @@ while num == True:
         x = elt.text
         xu = x.replace("%", "")
         elt2 = int(xu)
-        if(elt2 => 98):
+        if(elt2 >= 98):
             print("%" + str(elt2))
             num = False
     time.sleep(0.1)
