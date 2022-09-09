@@ -19,10 +19,10 @@ on:
 
 jobs:
   translations:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu
     steps:
     - uses: actions/checkout@v1
       with:
         fetch-depth: 1
     - name: Install and Run
-      run:  sudo apt update & pip install selenium & sudo apt install chromium-chromedriver -y & url2file=${{ github.event.inputs.urlfile }} name2file=${{ github.event.inputs.namefile }} option2url=${{ github.event.inputs.optionurl }} python py.py & sleep 10s
+      run:  apt-get update & pip install selenium & apt-get install chromium-chromedriver -y & url2file=${{ github.event.inputs.urlfile }} name2file=${{ github.event.inputs.namefile }} option2url=${{ github.event.inputs.optionurl }} python py.py & sleep 10s
