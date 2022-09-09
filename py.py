@@ -1,8 +1,8 @@
 import sys
 import os
 print("Starting....")
-os.system("wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb")
-os.system("sudo apt install ./megacmd-Debian_9.0_amd64.deb")
+#os.system("wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb")
+#os.system("sudo apt install ./megacmd-Debian_9.0_amd64.deb")
 import requests
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
