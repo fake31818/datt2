@@ -8,15 +8,18 @@ on:
          description: 'URL:'
          required: true
          default: ""
-       namefile:
-         description: 'Name File:'
-         required: true
-         default: ""
        optionurl:
          description: 'Option URL: URL = 1 | Mega = 2'
          required: true
-         default: "1"
-
+         default: "2"
+       url_mega_1:
+         description: 'URL Mega:'
+         required: false
+         default: "no"
+       url_mega_2:
+         description: 'URL Mega:'
+         required: false
+         default: "no"
 jobs:
   translations:
     runs-on: ubuntu-latest
@@ -25,4 +28,4 @@ jobs:
       with:
         fetch-depth: 1
     - name: Chrome
-      run: wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb && sudo apt install ./megacmd-Debian_9.0_amd64.deb && pip install selenium && sudo apt install chromium-chromedriver -y && pip install tqdm && pip install ipython && url2file=${{ github.event.inputs.urlfile }} name2file=${{ github.event.inputs.namefile }} option2url=${{ github.event.inputs.optionurl }} python py.py && sleep 10s
+      run: wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb && sudo apt install ./megacmd-Debian_9.0_amd64.deb && pip install selenium && sudo apt install chromium-chromedriver -y && pip install tqdm && pip install ipython && url2file=${{ github.event.inputs.urlfile }} url2mega_1=${{ github.event.inputs.url_mega_1 }} url2mega_2=${{ github.event.inputs.url_mega_2 }} option2url=${{ github.event.inputs.optionurl }} python py.py && sleep 10s
