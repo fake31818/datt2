@@ -3,11 +3,9 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-import shutil
 import time
 import os
 import sys
-from tqdm.auto import tqdm
 url_file = os.environ['url2file']
 url_mega_1 = os.environ['url2mega_1']
 url_mega_2 = os.environ['url2mega_2']
@@ -15,15 +13,9 @@ option_url = os.environ['option2url']
 patchfile = os.getcwd()
 #------------------------------------------------------------------------------------
 if(option_url == "1"):
-    with requests.get(url_file, stream=True) as r:
-        
-        total_length = int(r.headers.get("Content-Length"))
-        
-        with tqdm.wrapattr(r.raw, "read", total=total_length, desc="")as raw:
-        
-            # save the output to a file
-            with open(name_file, 'wb')as output:
-                shutil.copyfileobj(raw, output)
+    r = requests.get(url_file)
+    with open(name_file,'wb') as f:
+        f.write(r.content)
 elif(option_url == "2"):
     os.system("mega-get " + url_file)
     print("Mega Done!")
