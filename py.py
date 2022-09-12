@@ -12,11 +12,11 @@ url_mega_2 = os.environ['url2mega_2']
 option_url = os.environ['option2url']
 patchfile = os.getcwd()
 #------------------------------------------------------------------------------------
-if(option_url[:1] == "1"):
+if(option_url == "1"):
     r = requests.get(url_file)
     with open(option_url[1:],'wb') as f:
         f.write(r.content)
-elif(option_url[:1] == "2"):
+elif(option_url == "2"):
     os.system("mega-get " + url_file)
     print("Mega Done!")
 if(url_mega_1 != "no"):
