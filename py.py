@@ -85,5 +85,5 @@ if(url_mega_1 != "no"):
 if(url_mega_2 != "no"):
     driver.get(url_mega_2)
     mega_name()
-driver.close()
+time.sleep(5)
 print("------------")
