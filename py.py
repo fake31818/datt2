@@ -41,6 +41,11 @@ def mega_name():
     tup(name_file)
 
 def tup(name_file):
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    driver =webdriver.Chrome('chromedriver',chrome_options=chrome_options)
     sys.stdout.write('\r'+ "Loading... 1/4")
     driver.get("https://trainbit.com/membership/login.aspx")
     sys.stdout.write('\r'+ "Loading... 2/4")
@@ -68,11 +73,11 @@ def tup(name_file):
             if(elt2 > 90 and elt2 < 95):print(elt.text)
             if(elt2 > 99):
                 num = False
-        time.sleep(0.1)
+        time.sleep(0.5)
     time.sleep(1)
     print("100%")	
-    WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[3]/div/div[2]/div[2]/div/div[1]/ul/li")))
-    time.sleep(8)
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[3]/div/div[2]/div[2]/div/div[1]/ul/li")))
+    time.sleep(5)
     print("Upload Done! :D")
 
 
