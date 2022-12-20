@@ -1,0 +1,30 @@
+name: DVT
+
+on: 
+  workflow_dispatch:
+     inputs:
+       urlfile:
+         description: 'URL:'
+         required: true
+         default: ""
+       optionurl:
+         description: 'Option URL: URL = 1 | Mega = 2'
+         required: true
+         default: "2"
+       url_mega_1:
+         description: 'URL Mega:'
+         required: false
+         default: "no"
+       url_mega_2:
+         description: 'URL Mega:'
+         required: false
+         default: "no"
+jobs:
+  translations:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+    - name: Chrome
+      run: wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb && sudo apt install ./megacmd-Debian_9.0_amd64.deb && pip install selenium && sudo apt install chromium-chromedriver -y && pip install tqdm && pip install ipython && python sl.py && sleep 10s
