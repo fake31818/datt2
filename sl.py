@@ -15,13 +15,13 @@ chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 driver =webdriver.Chrome('chromedriver',chrome_options=chrome_options)
-URL = "https://slwatch.co/v/7vjPWlqKKR1D34JK"
+URL = os.environ['url']
 if URL == "":
   print("URL Empty!")
   exit()
 driver.get(URL)
 url = driver.find_elements(by=By.XPATH,value='//*[@id="downloadCollapse"]/div/a')
-filesize_MB= "1230"
+filesize_MB= os.environ['size']
 filesize=int(filesize_MB)
 pbar = tqdm.tqdm(total=int(filesize),position=0,bar_format='{l_bar}{bar:50}{r_bar}{bar:-50b}')
 clear_output()
@@ -31,7 +31,7 @@ filename = str(driver.find_elements(by=By.XPATH,value='//*[@id="app"]/main/secti
 print(filename)
 try:os.remove(filename)
 except:pass
-OrgName = "an-imperfect-murder.mp4"
+OrgName = os.environ['name']
 OrgName = OrgName.lower()
 if OrgName == "":
   print("OrgName Empty!")
@@ -55,7 +55,7 @@ while True:
       driver.close()
       break
     except:pass
-  time.sleep(1)
+  time.sleep(3)
 
 
 os.rename(filenamec, OrgName)
