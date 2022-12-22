@@ -1,5 +1,3 @@
-#@markdown <br><center><img src='https://sltube.org/images/logo.png' height="50" alt="MEGA-logo"/></center>
-#@markdown <center><h2>Streamlare Downloader</h2></center><br>
 from IPython.display import clear_output
 import time , os , sys, tqdm, re
 try:from selenium import webdriver
@@ -17,20 +15,14 @@ chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 driver =webdriver.Chrome('chromedriver',chrome_options=chrome_options)
-URL = "https://slwatch.co/v/7vjPWlqKKR1D34JK"#@param {type:"string"}
+URL = "https://slwatch.co/v/7vjPWlqKKR1D34JK"
 if URL == "":
   print("URL Empty!")
   exit()
 driver.get(URL)
 url = driver.find_elements(by=By.XPATH,value='//*[@id="downloadCollapse"]/div/a')
-filesize = str(url[0].get_attribute("text"))
-if "gb" in filesize.lower():gb=True
-else:gb = False
-filesize = re.findall(r'\d+', filesize)
-print(filesize)
-if gb:filesize = int(filesize[0] + filesize[1] + "0")
-else:filesize = float(filesize[0] +"."+ filesize[1])
-filesize = 1230
+filesize_MB= "1230"
+filesize=int(filesize_MB)
 pbar = tqdm.tqdm(total=int(filesize),position=0,bar_format='{l_bar}{bar:50}{r_bar}{bar:-50b}')
 clear_output()
 print(str(filesize)+"MB")
@@ -39,7 +31,8 @@ filename = str(driver.find_elements(by=By.XPATH,value='//*[@id="app"]/main/secti
 print(filename)
 try:os.remove(filename)
 except:pass
-OrgName = "an-imperfect-murder.mp4"#@param {type:"string"}
+OrgName = "an-imperfect-murder.mp4"
+OrgName = OrgName.lower()
 if OrgName == "":
   print("OrgName Empty!")
   exit()
@@ -66,3 +59,4 @@ while True:
 
 
 os.rename(filenamec, OrgName)
+os.system(f"mega-put {OrgName}")
