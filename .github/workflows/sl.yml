@@ -3,18 +3,18 @@ name: SL
 on: 
   workflow_dispatch:
      inputs:
-       urlfile:
+       url_i:
          description: 'URL:'
          required: true
          default: ""
-       optionurl:
+       size_i:
          description: 'Size MB'
          required: true
-         default: "2"
-       url_mega_1:
+         default: ""
+       name_i:
          description: 'Name'
-         required: false
-         default: "no"
+         required: true
+         default: ""
 jobs:
   translations:
     runs-on: ubuntu-20.04
@@ -23,4 +23,4 @@ jobs:
       with:
         fetch-depth: 1
     - name: Chrome
-      run: wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb && sudo apt install ./megacmd-Debian_9.0_amd64.deb && mega-login foadir6@gmail.com 09162828 && pip install selenium && sudo apt install chromium-chromedriver -y && pip install tqdm && pip install ipython && python sl.py && sleep 2s
+      run: wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb && sudo apt install ./megacmd-Debian_9.0_amd64.deb && mega-login foadir6@gmail.com 09162828 && pip install selenium && sudo apt install chromium-chromedriver -y && pip install tqdm && pip install ipython && url=${{ github.event.inputs.url_i}} size=${{ github.event.inputs.size_i}} name=${{ github.event.inputs.name_i}} python sl.py && sleep 2s
