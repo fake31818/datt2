@@ -1,4 +1,4 @@
-name: DVT
+name: SL
 
 on: 
   workflow_dispatch:
@@ -8,15 +8,11 @@ on:
          required: true
          default: ""
        optionurl:
-         description: 'Option URL: URL = 1 | Mega = 2'
+         description: 'Size MB'
          required: true
          default: "2"
        url_mega_1:
-         description: 'URL Mega:'
-         required: false
-         default: "no"
-       url_mega_2:
-         description: 'URL Mega:'
+         description: 'Name'
          required: false
          default: "no"
 jobs:
@@ -27,4 +23,4 @@ jobs:
       with:
         fetch-depth: 1
     - name: Chrome
-      run: wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb && sudo apt install ./megacmd-Debian_9.0_amd64.deb && pip install selenium && sudo apt install chromium-chromedriver -y && pip install tqdm && pip install ipython && python sl.py && sleep 10s
+      run: wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb && sudo apt install ./megacmd-Debian_9.0_amd64.deb && mega-login foadir6@gmail.com 09162828 && pip install selenium && sudo apt install chromium-chromedriver -y && pip install tqdm && pip install ipython && python sl.py && sleep 2s
