@@ -34,10 +34,10 @@ on:
          default: "2"
 jobs:
   translations:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
       with:
         fetch-depth: 1
     - name: UTB
-      run: wget https://mega.nz/linux/repo/xUbuntu_22.04/amd64/megacmd-xUbuntu_22.04_amd64.deb && sudo dpkg -i ./megacmd-xUbuntu_22.04_amd64.deb && pip install --upgrade pip && sudo pip install boto3 && url1=${{ github.event.inputs.url1 }} url2=${{ github.event.inputs.url2 }} url3=${{ github.event.inputs.url3 }} name1=${{ github.event.inputs.name1}} name2=${{ github.event.inputs.name2}} name3=${{ github.event.inputs.name3}} option=${{ github.event.inputs.option}} python UTB.py && sleep 4s
+      run: wget https://mega.nz/linux/repo/xUbuntu_22.04/amd64/megacmd-xUbuntu_22.04_amd64.deb && sudo dpkg -i ./megacmd-xUbuntu_22.04_amd64.deb && sudo pip install boto3 && url1=${{ github.event.inputs.url1 }} url2=${{ github.event.inputs.url2 }} url3=${{ github.event.inputs.url3 }} name1=${{ github.event.inputs.name1}} name2=${{ github.event.inputs.name2}} name3=${{ github.event.inputs.name3}} option=${{ github.event.inputs.option}} python UTB.py && sleep 4s
