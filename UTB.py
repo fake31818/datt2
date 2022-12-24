@@ -98,9 +98,9 @@ if object_name3 != "no":
 i = 0
 for url in url:
     object_name = object_names[i]
-    if option == 1:
+    if option == "1":
         os.system(f"curl '{url}' -o '{object_name}'")
-    elif option == 2:
+    elif option == "2":
         os.system(f"mega-get '{url}'")
     else:
       print("Error 204")
