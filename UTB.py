@@ -8,6 +8,7 @@ from typing import Optional
 try:import boto3
 except:
     os.system("apt update;apt install python3-pip -y;pip install -q boto3;clear")
+    print("installed")
     import boto3
 from boto3.s3.transfer import TransferConfig
 from botocore.exceptions import ClientError
