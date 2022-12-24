@@ -21,7 +21,7 @@ on:
          default: "no"
        url3:
          description: 'URL 3'
-         required: true
+         required: false
          default: ""
        name3:
          description: 'Name 3'
