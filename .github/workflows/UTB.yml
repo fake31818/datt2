@@ -6,7 +6,7 @@ on:
        url1:
          description: 'URL 1'
          required: true
-         default: "22"
+         default: ""
        name1:
          description: 'Name 1'
          required: true
@@ -34,7 +34,7 @@ on:
          default: "2"
 jobs:
   translations:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
       with:
