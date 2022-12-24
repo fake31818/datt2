@@ -79,23 +79,15 @@ def upload_file(file_path: str, bucket: str, object_name: Optional[str] = None):
 
     return True
 option = os.environ['option']
-url1 = os.environ['url1']
-url2 = os.environ['url2']
-url3 = os.environ['url3']
-url = [url1]
-object_name1 = os.environ['name1']
-object_name2 = os.environ['name2']
-object_name3 = os.environ['name3']
-object_names = [object_name1]
-if object_name2 != "no":
-    object_names.append(object_name2)
-    url.append(url2)
-if object_name3 != "no":
-    object_names.append(object_name3)
-    url.append(url3)
+f = open("demofile.txt", "r")
+f = f.split("\n")
+fi = int(int(len(f)) / 2)
+print(f)
 i = 0
-for url in url:
-    object_name = object_names[i]
+for i in range(0,fi+1):
+    url = f[i+i]
+    object_name = f[i+i+1]
+    print(url + " :  " + object_name)
     if option == "1":
         os.system(f"curl '{url}' -o '{object_name}'")
     elif option == "2":
@@ -109,4 +101,3 @@ for url in url:
     file_rel_path: str = os.path.join('', object_name)
     file_abs_path: str = os.path.join(base_directory, file_rel_path)
     upload_file(file_abs_path, 'arvs', object_name)
-    i+=1
