@@ -79,7 +79,7 @@ def upload_file(file_path: str, bucket: str, object_name: Optional[str] = None):
 
     return True
 option = os.environ['option']
-f = open("demofile.txt", "r")
+f = open("UTB.txt", "r")
 f = f.split("\n")
 fi = int(int(len(f)) / 2)
 print(f)
