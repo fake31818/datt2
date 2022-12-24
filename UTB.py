@@ -9,7 +9,7 @@ from typing import Optional
 import boto3
 from boto3.s3.transfer import TransferConfig
 from botocore.exceptions import ClientError
-
+import time
 # Constant variables
 KB = 1024
 MB = KB * KB
@@ -46,6 +46,7 @@ class ProgressPercentage:
                 "\r%s  %s / %s  (%.2f%%)" % (self._file_path, self._seen_so_far, self._size, percentage)
             )
             sys.stdout.flush()
+            time.sleep(0.1)
 
 
 def upload_file(file_path: str, bucket: str, object_name: Optional[str] = None):
