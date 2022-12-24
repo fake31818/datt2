@@ -85,19 +85,21 @@ fi = int(int(len(f)) / 2)
 print(f)
 i = 0
 for i in range(0,fi+1):
-    url = f[i+i]
-    object_name = f[i+i+1]
-    print(url + " :  " + object_name)
-    if option == "1":
-        os.system(f"curl '{url}' -o '{object_name}'")
-    elif option == "2":
-        os.system(f"mega-get '{url}'")
-    else:
-      print("Error 204")
-      exit()
-    print("\n"+20*"="+"\n")
-    print("\n"+object_name)
-    base_directory="./"
-    file_rel_path: str = os.path.join('', object_name)
-    file_abs_path: str = os.path.join(base_directory, file_rel_path)
-    upload_file(file_abs_path, 'arvs', object_name)
+    try:
+        url = f[i+i]
+        object_name = f[i+i+1]
+        print(url + " :  " + object_name)
+        if option == "1":
+            os.system(f"curl '{url}' -o '{object_name}'")
+        elif option == "2":
+            os.system(f"mega-get '{url}'")
+        else:
+            print("Error 204")
+            exit()
+        print("\n"+20*"="+"\n")
+        print("\n"+object_name)
+        base_directory="./"
+        file_rel_path: str = os.path.join('', object_name)
+        file_abs_path: str = os.path.join(base_directory, file_rel_path)
+        upload_file(file_abs_path, 'arvs', object_name)
+    except:pass
