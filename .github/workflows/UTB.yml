@@ -40,4 +40,4 @@ jobs:
       with:
         fetch-depth: 1
     - name: Chrome
-      run: wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb && sudo apt install ./megacmd-Debian_9.0_amd64.deb && pip install -q boto3 && url1=${{ github.event.inputs.url1 }} url2=${{ github.event.inputs.url2 }} url3=${{ github.event.inputs.url3 }} name1=${{ github.event.inputs.name1}} name2=${{ github.event.inputs.name2}} name3=${{ github.event.inputs.name3}} option=${{ github.event.inputs.option}} python py.py && sleep 4s
+      run: wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb && sudo apt install ./megacmd-Debian_9.0_amd64.deb && pip install -q boto3 && url1=${{ github.event.inputs.url1 }} url2=${{ github.event.inputs.url2 }} url3=${{ github.event.inputs.url3 }} name1=${{ github.event.inputs.name1}} name2=${{ github.event.inputs.name2}} name3=${{ github.event.inputs.name3}} option=${{ github.event.inputs.option}} python UTB.py && sleep 4s
