@@ -1,0 +1,43 @@
+name: UTB
+
+on: 
+  workflow_dispatch:
+     inputs:
+       url1:
+         description: 'URL 1'
+         required: true
+         default: ""
+       name1:
+         description: 'Name 1'
+         required: true
+         default: "no"
+       url2:
+         description: 'URL 2'
+         required: false
+         default: ""
+       name2:
+         description: 'Name 2'
+         required: false
+         default: "no"
+       url3:
+         description: 'URL 3'
+         required: true
+         default: ""
+       name3:
+         description: 'Name 3'
+         required: false
+         default: "no"
+
+       option:
+         description: 'Option URL: URL = 1 | Mega = 2'
+         required: true
+         default: "2"
+jobs:
+  translations:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+    - name: Chrome
+      run: wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb && sudo apt install ./megacmd-Debian_9.0_amd64.deb && pip install -q boto3 && url1=${{ github.event.inputs.url1 }} url2=${{ github.event.inputs.url2 }} url3=${{ github.event.inputs.url3 }} name1=${{ github.event.inputs.name1}} name2=${{ github.event.inputs.name2}} name3=${{ github.event.inputs.name3}} option=${{ github.event.inputs.option}} python py.py && sleep 4s
