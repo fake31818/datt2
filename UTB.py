@@ -46,7 +46,7 @@ class ProgressPercentage:
                 "\r%s  %s / %s  (%.2f%%)" % (self._file_path, self._seen_so_far, self._size, percentage)
             )
             sys.stdout.flush()
-            time.sleep(0.5)
+            time.sleep(1)
 
 
 def upload_file(file_path: str, bucket: str, object_name: Optional[str] = None):
