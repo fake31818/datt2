@@ -17,10 +17,10 @@ on:
          default: ""
 jobs:
   translations:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
       with:
         fetch-depth: 1
     - name: Chrome
-      run: wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb && sudo apt install ./megacmd-Debian_9.0_amd64.deb && pip install selenium && sudo apt install chromium-chromedriver tor torsocks -y && pip install tqdm ipython && service tor restart && sleep 8 && torify url=${{ github.event.inputs.url_i}} size=${{ github.event.inputs.size_i}} name=${{ github.event.inputs.name_i}} python sl.py && sleep 2s
+      run: sudo apt install chromium-chromedriver -y && pip install tqdm ipython selenium && url=${{ github.event.inputs.url_i}} size=${{ github.event.inputs.size_i}} name=${{ github.event.inputs.name_i}} python sl.py && sleep 2s
