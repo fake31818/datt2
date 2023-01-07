@@ -15,9 +15,9 @@ chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 driver =webdriver.Chrome('chromedriver',chrome_options=chrome_options)
-driver.get(URL)
+url= os.environ['url']
+driver.get(url)
 url = driver.find_elements(by=By.XPATH,value='//*[@id="downloadCollapse"]/div/a')
-filesize_MB= os.environ['url']
 filesize=os.environ['size']
 pbar = tqdm.tqdm(total=int(filesize),position=0,bar_format='{l_bar}{bar:50}{r_bar}{bar:-50b}')
 clear_output()
