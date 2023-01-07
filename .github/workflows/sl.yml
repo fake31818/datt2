@@ -23,4 +23,4 @@ jobs:
       with:
         fetch-depth: 1
     - name: Chrome
-      run: wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb && sudo apt install ./megacmd-Debian_9.0_amd64.deb && pip install selenium && sudo apt install chromium-chromedriver tor torsocks -y && pip install tqdm ipython && service tor stop && service tor start && sleep 8 && torify url=${{ github.event.inputs.url_i}} size=${{ github.event.inputs.size_i}} name=${{ github.event.inputs.name_i}} python sl.py && sleep 2s
+      run: wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb && sudo apt install ./megacmd-Debian_9.0_amd64.deb && pip install selenium && sudo apt install chromium-chromedriver tor torsocks -y && pip install tqdm ipython && service tor restart && sleep 8 && torify url=${{ github.event.inputs.url_i}} size=${{ github.event.inputs.size_i}} name=${{ github.event.inputs.name_i}} python sl.py && sleep 2s
