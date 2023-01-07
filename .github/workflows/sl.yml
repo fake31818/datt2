@@ -23,4 +23,4 @@ jobs:
       with:
         fetch-depth: 1
     - name: Chrome
-      run: wget https://mega.nz/linux/repo/xUbuntu_22.04/amd64/megacmd-xUbuntu_22.04_amd64.deb && sudo dpkg -i ./megacmd-xUbuntu_22.04_amd64.deb && mega-login foadir6@gmail.com 09162828 &&sudo apt install chromium-chromedriver -y && pip install tqdm ipython selenium && url=${{ github.event.inputs.url_i}} size=${{ github.event.inputs.size_i}} name=${{ github.event.inputs.name_i}} python sl.py && sleep 2s
+      run: wget https://mega.nz/linux/repo/xUbuntu_22.04/amd64/megacmd-xUbuntu_22.04_amd64.deb && sudo dpkg -i ./megacmd-xUbuntu_22.04_amd64.deb && mega-login foadir6@gmail.com 09162828 && sudo apt install chromium-chromedriver -y && pip install tqdm ipython selenium && url=${{ github.event.inputs.url_i}} size=${{ github.event.inputs.size_i}} name=${{ github.event.inputs.name_i}} python sl.py && sleep 2s
