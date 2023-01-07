@@ -57,19 +57,13 @@ def tup(name_file):
     time.sleep(4)
     sys.stdout.write('\r'+ "Loading... 4/4")
     driver.find_element(by=By.ID,value="f_upload").send_keys(patchfile + "/" + name_file)
-    print("40")
     WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[3]/div/div[2]/div[2]/div/div[1]/ul/li/div/p[2]/span")))
-    print("33")
     number = driver.find_elements(by=By.XPATH,value="/html/body/div[1]/div[3]/div/div[2]/div[2]/div/div[1]/ul/li/div/p[2]/span")
-    print("32")
     print("\n" + name_file)
     num = True
     while num == True:
-        print("While")
         for elt in number:
-            print("elt 1")
             x = elt.text
-            print("elt 2")
             xu = x.replace("%", "")
             elt2 = int(xu)
             if(elt2 > 10 and elt2 < 12):print(elt.text)
@@ -79,7 +73,6 @@ def tup(name_file):
             if(elt2 > 90 and elt2 < 95):print(elt.text)
             if(elt2 > 99):
                 num = False
-            print("elt 3")
         time.sleep(0.5)
     time.sleep(1)
     print("100%")	
