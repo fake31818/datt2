@@ -86,7 +86,6 @@ if(option_url == "1"):
         try:
             url = f[i+i]
             object_name = f[i+i+1]
-            r = requests.get(url_file)
             os.system(f"curl '{url}' -o '{object_name}'")
             tup(object_name)
         except:print("Error")
