@@ -11,11 +11,12 @@ url_mega_1 = os.environ['url2mega_1']
 url_mega_2 = os.environ['url2mega_2']
 option_url = os.environ['option2url']
 patchfile = os.getcwd()
+f = open("TR.txt", "r").read()
+f = f.split("\n")
+fi = int(int(len(f)) / 2)
+print(f)
+i = 0
 #------------------------------------------------------------------------------------
-if(option_url == "1"):
-    r = requests.get(url_file)
-    with open(option_url[1:],'wb') as f:
-        f.write(r.content)
 elif(option_url == "2"):
     os.system("mega-get " + url_file)
     print("Mega Done!")
@@ -80,7 +81,15 @@ def tup(name_file):
     time.sleep(5)
     print("Upload Done! :D")
 
-
+if(option_url == "1"):
+    for i in range(0,fi+1):
+        try:
+            url = f[i+i]
+            object_name = f[i+i+1]
+            r = requests.get(url_file)
+            os.system(f"curl '{url}' -o '{object_name}'")
+            tup(object_name)
+        except:print("Error")
 if(option_url == "2"):
     driver.get(url_file)
     mega_name()
