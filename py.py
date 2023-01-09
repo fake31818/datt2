@@ -17,7 +17,7 @@ fi = int(int(len(f)) / 2)
 print(f)
 i = 0
 #------------------------------------------------------------------------------------
-elif(option_url == "2"):
+if(option_url == "2"):
     os.system("mega-get " + url_file)
     print("Mega Done!")
 if(url_mega_1 != "no"):
