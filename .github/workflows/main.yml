@@ -22,10 +22,10 @@ on:
          default: "no"
 jobs:
   translations:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
       with:
         fetch-depth: 1
     - name: Chrome
-      run: wget https://mega.nz/linux/repo/Debian_9.0/amd64/megacmd-Debian_9.0_amd64.deb && sudo apt install ./megacmd-Debian_9.0_amd64.deb && pip install selenium && sudo apt install chromium-chromedriver -y && pip install tqdm && pip install ipython && url2file=${{ github.event.inputs.urlfile }} url2mega_1=${{ github.event.inputs.url_mega_1 }} url2mega_2=${{ github.event.inputs.url_mega_2 }} option2url=${{ github.event.inputs.optionurl }} python py.py && sleep 10s
+      run: wget https://mega.nz/linux/repo/xUbuntu_22.04/amd64/megacmd-xUbuntu_22.04_amd64.deb && sudo apt install ./megacmd-xUbuntu_22.04_amd64.deb && pip install selenium && sudo apt install chromium-chromedriver -y && pip install tqdm && pip install ipython && url2file=${{ github.event.inputs.urlfile }} url2mega_1=${{ github.event.inputs.url_mega_1 }} url2mega_2=${{ github.event.inputs.url_mega_2 }} option2url=${{ github.event.inputs.optionurl }} python py.py && sleep 10s
